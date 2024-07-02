@@ -24,4 +24,5 @@ iface = gr.Interface(
     description="Upload a liver CT scan NIfTI file (.nii.gz) to get the segmentation result."
 )
 
-iface.launch(share=True)
+if __name__ == "__main__":
+    iface.launch(share=True)
