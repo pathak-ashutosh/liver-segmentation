@@ -1,0 +1,8 @@
+numpy
+nibabel
+scikit-image
+keras
+tensorflow
+matplotlib
+gradio
+pydicom

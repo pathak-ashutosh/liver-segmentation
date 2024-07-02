@@ -3,7 +3,7 @@ import numpy as np
 import nibabel
 from skimage.io import imsave, imread
 
-data_path = 'raw/'
+data_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'data', 'raw')
 
 image_rows = int(512/2)
 image_cols = int(512/2) #we will undersample our training 2D images later (for memory and speed)
@@ -44,15 +44,14 @@ def create_train_data():
     for index,img in enumerate(imgsliv_train):
         imgs_mask[index,:,:]=img
 
-
-    np.save('imgs_train.npy', imgs)
-    np.save('imgsliv_train.npy', imgs_mask)
+    np.save(os.path.join(data_path, '..', 'processed', 'imgs_train.npy'), imgs)
+    np.save(os.path.join(data_path, '..', 'processed', 'imgsliv_train.npy'), imgs_mask)
     print('Saving to .npy files done.')
 
 
 def load_train_data():
-    imgs_train = np.load('imgs_train.npy')
-    imgs_mask_train = np.load('imgsliv_train.npy')
+    imgs_train = np.load(os.path.join(data_path, '..', 'processed', 'imgs_train.npy'))
+    imgs_mask_train = np.load(os.path.join(data_path, '..', 'processed', 'imgsliv_train.npy'))
     return imgs_train, imgs_mask_train
 
 
@@ -75,8 +74,6 @@ def create_test_data():
             
             elif 'orig' in image_name:
                 imgs_test.append(dimg)
-                
-   
     
     imgst= np.ndarray((len(imgs_test), image_rows, image_cols), dtype=np.uint8)
     imgs_maskt= np.ndarray((len(imgsliv_test), image_rows, image_cols), dtype=np.uint8)
@@ -85,15 +82,14 @@ def create_test_data():
     for index,img in enumerate(imgsliv_test):
         imgs_maskt[index,:,:]=img
 
-    np.save('imgs_test.npy', imgst)
-    np.save('imgsliv_test.npy', imgs_maskt)
+    np.save(os.path.join(data_path, '..', 'processed', 'imgs_test.npy'), imgst)
+    np.save(os.path.join(data_path, '..', 'processed', 'imgsliv_test.npy'), imgs_maskt)
     print('Saving to .npy files done.')
-    
 
 
 def load_test_data():
-    imgst = np.load('imgs_test.npy')
-    imgs_id = np.load('imgsliv_test.npy')
+    imgst = np.load(os.path.join(data_path, '..', 'processed', 'imgs_test.npy'))
+    imgs_id = np.load(os.path.join(data_path, '..', 'processed', 'imgsliv_test.npy'))
     return [imgst, imgs_id]
 
 if __name__ == '__main__':
