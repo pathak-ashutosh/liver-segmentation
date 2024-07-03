@@ -6,5 +6,3 @@ tensorflow
 matplotlib
 gradio
 pydicom
-dvc
-dvc_gdrive
