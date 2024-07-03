@@ -1,3 +1,14 @@
+---
+title: Liver Segmentation using UNet
+emoji: 🩺
+colorFrom: blue
+colorTo: green
+sdk: gradio
+sdk_version: "3.0"
+app_file: app.py
+pinned: false
+---
+
 # Liver Segmentation with U-Net
 
 *Final project of the Deep Learning course followed at [IMT Atlantique](https://www.imt-atlantique.fr/en).*
