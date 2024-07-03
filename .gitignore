@@ -3,6 +3,5 @@ __pycache__/
 .DS_Store
 **/*.png
 **/*.npy
-**/*.h5
 **/*.nii.gz
 /data/raw
