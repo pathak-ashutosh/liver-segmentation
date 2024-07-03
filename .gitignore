@@ -1,0 +1,8 @@
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+**/*.png
+**/*.npy
+**/*.h5
+**/*.nii.gz
+/data/raw
